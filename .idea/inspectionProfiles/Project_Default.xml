@@ -1,0 +1,8 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ADDITIONAL_TAGS" value="spel,spel_shortParameter,spel_parameter,spel_evaluationContext,spel_root,spel_return,spel_map,spel_contextVariables,spel_template,ManyToOne,OneToOne" />
+    </inspection_tool>
+  </profile>
+</component>
