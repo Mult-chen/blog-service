@@ -11,7 +11,7 @@
 2. 数据库表结构创建 2025-04-11
 
 ```sql
-CREATE TABLE Posts
+CREATE TABLE posts
 (
     id         BIGINT(25)   not null PRIMARY KEY AUTO_INCREMENT,
     title      VARCHAR(200) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE Posts
 ) engine = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE Comments
+CREATE TABLE comments
 (
     id              BIGINT(25)  not null PRIMARY KEY AUTO_INCREMENT,
     post_id         BIGINT(25)  NOT NULL,
