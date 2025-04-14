@@ -26,8 +26,6 @@ import java.util.List;
 @RequestMapping
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class TestEndpoint {
-
-    @Autowired
     PostsMapper postsMapper;
 
 
@@ -35,8 +33,6 @@ public class TestEndpoint {
     @GetMapping("/hello")
     public Posts getUserInfo() {
         Posts posts = postsMapper.selectPostById(1L);
-
-        System.out.println("" + JSON.toJSONString(posts));
         return posts;
     }
     //新增消费记录
