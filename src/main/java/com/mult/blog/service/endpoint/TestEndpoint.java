@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,9 +32,12 @@ public class TestEndpoint {
 
 
     @GetMapping("/hello")
-    public Posts getUserInfo() {
+    public List<Posts> getUserInfo(String type) {
+        if(!type.equals("生活") && !type.equals("首页")){
+            return Collections.emptyList();
+        }
         Posts posts = postsMapper.selectPostById(1L);
-        return posts;
+        return Collections.singletonList(posts);
     }
     //新增消费记录
 
