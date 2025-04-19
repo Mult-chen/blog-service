@@ -21,4 +21,17 @@
     from posts
     where id = #{id}
   </select>
+
+  <select id="selectByTypeAndTitle" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from posts
+    <where>
+      <if test="title != null and title != ''">
+        and title like concat('%', #{title}, '%')
+      </if>
+      <if test="type != null and type != ''">
+        and `type` = #{type}
+      </if>
+    </where>
+  </select>
 </mapper>

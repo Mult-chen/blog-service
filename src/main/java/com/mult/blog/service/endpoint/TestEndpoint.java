@@ -10,9 +10,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,22 +22,27 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("/article")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class TestEndpoint {
     PostsMapper postsMapper;
 
 
 
-    @GetMapping("/hello")
-    public List<Posts> getUserInfo(String type) {
-        if(!type.equals("生活") && !type.equals("首页")){
-            return Collections.emptyList();
-        }
-        Posts posts = postsMapper.selectPostById(1L);
-        return Collections.singletonList(posts);
+    @GetMapping("/list")
+    public List<Posts> getUserInfo(String type,String title) {
+        return postsMapper.selectByTypeAndTitle(type,title);
     }
-    //新增消费记录
+
+    @GetMapping("/detail")
+    public Posts detail(Long  id    ) {
+        return postsMapper.selectPostById(id);
+    }
+
+    @PostMapping("save")
+    public void save(@RequestBody Posts posts) {
+        postsMapper.insert(posts);
+    }
 
 
 
