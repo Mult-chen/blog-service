@@ -19,8 +19,7 @@ CREATE TABLE posts
     type       VARCHAR(50)  NOT NULL,
     created_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME              DEFAULT NULL
-) engine = InnoDB
-  DEFAULT CHARSET = utf8mb4;
+) engine  =innodb default charset=utf8mb4 comment '博客文章列表';
 
 CREATE TABLE comments
 (
@@ -32,5 +31,16 @@ CREATE TABLE comments
     parent_id       BIGINT               DEFAULT NULL,
     created_at      DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at      DATETIME             DEFAULT NULL
-);
+)engine  =innodb default charset=utf8mb4 comment '评论记录表';
+
+create table image_file(
+                          id bigint(25) not null primary key auto_increment comment '主键',
+                          image_file longblob not null  comment '图片文件',
+                          image_name varchar(255) not null comment '图片名称',
+                          image_type varchar(255) not null comment '图片类型',
+                          create_time datetime not null default current_timestamp comment '创建时间',
+                          update_time datetime not null default current_timestamp on update current_timestamp comment '更新时间'
+)engine  =innodb default charset=utf8mb4 comment '图片文件表';
 ```
+3. 更新表的创建内容，增加图片文件保存的表。
+4. 新增获取图片信息和保存图片信息的接口。
