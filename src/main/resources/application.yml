@@ -3,7 +3,7 @@ spring:
     name: blog-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/blog
+    url: jdbc:mysql://localhost:3306/blog_test
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver

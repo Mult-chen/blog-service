@@ -7,21 +7,23 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
 import lombok.Data;
 
-// Created on 2025-04-20
+// Created on 2025-04-23
 
 
 /**
 * @author Mult
 * @since 1.0.0
 */
+
 /**
  * 图片文件表
  */
 @Data
 @TableName(value = "image_file")
 public class ImageFile {
+
     /**
-     * 主键
+     * 主键id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;

@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-// Created on 2025-04-13
+// Created on 2025-04-23
 
 
 /**
@@ -14,6 +14,7 @@ import java.util.List;
  * @since 1.0.0
  */
 public interface PostsMapper extends BaseMapper<Posts> {
+
     Posts selectPostById(Long postId);
 
     List<Posts> selectByTypeAndTitle(@Param("type") String type, @Param("title") String title);

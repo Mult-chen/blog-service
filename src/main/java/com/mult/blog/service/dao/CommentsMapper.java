@@ -2,9 +2,8 @@ package com.mult.blog.service.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.mult.blog.service.bean.Comments;
-import com.mult.blog.service.bean.Posts;
 
-// Created on 2025-04-13
+// Created on 2025-04-23
 
 
 /**

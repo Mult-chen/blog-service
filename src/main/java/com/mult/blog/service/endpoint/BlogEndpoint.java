@@ -79,6 +79,11 @@ public class BlogEndpoint {
     }
 
 
+    @PostMapping("/update")
+    public void update(@RequestBody Posts posts) {
+        postsMapper.updateById(posts);
+    }
+
 
 
 }

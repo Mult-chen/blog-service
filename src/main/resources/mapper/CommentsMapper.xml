@@ -9,13 +9,12 @@
     <result column="commenter_name" jdbcType="VARCHAR" property="commenterName" />
     <result column="commenter_email" jdbcType="VARCHAR" property="commenterEmail" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
-    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, post_id, commenter_name, commenter_email, content, parent_id, created_at, updated_at
+    id, post_id, commenter_name, commenter_email, content, created_at, updated_at
   </sql>
 
 

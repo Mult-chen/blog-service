@@ -6,14 +6,16 @@
     <!--@Table posts-->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="img_id" jdbcType="BIGINT" property="imgId" />
+    <result column="digest" jdbcType="VARCHAR" property="digest" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
     <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
-    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, title, content, `type`, created_at, updated_at
+    id, title, img_id, digest, content, `type`, created_time, updated_time
   </sql>
 
   <select id="selectPostById" resultType="com.mult.blog.service.bean.Posts">
