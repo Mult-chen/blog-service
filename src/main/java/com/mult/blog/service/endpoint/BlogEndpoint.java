@@ -68,15 +68,14 @@ public class BlogEndpoint {
     }
 
     @GetMapping("/image")
-    public ResponseEntity<byte[]> image(Long id, HttpServletResponse response) {
+    public byte[] image(Long id, HttpServletResponse response) {
         ImageFile imageFile = imageFileMapper.selectById(id);
         if (imageFile == null) {
             return null;
         }
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.parseMediaType(imageFile.getImageType()));
-        httpHeaders.setContentLength(imageFile.getImageFile().length);
-        return new ResponseEntity<>(imageFile.getImageFile(),httpHeaders, HttpStatus.OK);
+        response.setContentType(imageFile.getImageType());
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + imageFile.getImageName() + "\"");
+        return imageFile.getImageFile();
     }
 
 
