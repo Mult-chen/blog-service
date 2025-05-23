@@ -3,13 +3,13 @@ spring:
     name: blog-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/blog_test
+    url: jdbc:mysql://localhost:3306/blog_first
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
     multipart:
-      max-file-size: 5MB
+      max-file-size: 512MB
 
 
 
