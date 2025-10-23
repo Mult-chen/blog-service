@@ -3,7 +3,7 @@ spring:
     name: blog-service
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/blog_first
+    url: jdbc:mysql://172.18.0.2:3306/blog_first
     username: root
     password: admin
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,8 +12,9 @@ spring:
       max-file-size: 512MB
 
 
-
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8085

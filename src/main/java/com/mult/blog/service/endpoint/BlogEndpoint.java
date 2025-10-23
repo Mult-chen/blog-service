@@ -74,7 +74,24 @@ public class BlogEndpoint {
             return null;
         }
         response.setContentType(imageFile.getImageType());
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + imageFile.getImageName() + "\"");
+        String originalName = imageFile.getImageName();
+        String asciiFallback = "download";
+        String ext = "";
+        int dot = originalName.lastIndexOf('.');
+        if (dot >= 0) {
+            ext = originalName.substring(dot);
+        }
+        String safeAscii = asciiFallback + ext;
+        String encodedUtf8;
+        try {
+            // RFC 5987: filename*=UTF-8''<percent-encoded-utf8>
+            encodedUtf8 = java.net.URLEncoder.encode(originalName, java.nio.charset.StandardCharsets.UTF_8)
+                    .replace("+", "%20");
+        } catch (Exception e) {
+            encodedUtf8 = safeAscii;
+        }
+        String contentDisposition = "attachment; filename=\"" + safeAscii + "\"; filename*=UTF-8''" + encodedUtf8;
+        response.setHeader(org.springframework.http.HttpHeaders.CONTENT_DISPOSITION, contentDisposition);
         return imageFile.getImageFile();
     }
 
